@@ -13,5 +13,5 @@ const postLink = document.getElementById('post');
 
 //Funciones que renderizan cada sección
 forRouter(homeLink, '/home');
-forRouter(loginLink, '/Login');
+forRouter(loginLink, '/login');
 forRouter(postLink, '/post');

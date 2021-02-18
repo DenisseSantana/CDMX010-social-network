@@ -1,5 +1,5 @@
 import { home } from './home.js';
-import { logIn } from './login.js';
+import { login } from './login.js';
 import { post } from './post.js';
 
 //Objeto que contiene los pathnames de las secciones
@@ -7,7 +7,7 @@ const rootDiv = document.getElementById('root');
 
 export const routes = {
     '/home': home,
-    '/login': logIn,
+    '/login': login,
     '/post': post,
 };
 

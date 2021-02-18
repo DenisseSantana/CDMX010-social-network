@@ -1,1 +1,1 @@
-export const logIn = () => `<h1>I am Log In</h1>`;
+export const login =  `<h1>I am Log In</h1>`;
