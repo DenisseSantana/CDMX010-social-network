@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.colores {
+    display: flex;
+    background: rgb(242,105,95);
+    background: rgb(249,180,175);
+    background: rgb(245,143,136);
+}
+
+#container {
+    width: 100%;
+ }
+
+.topRow {
+    display: flex;
+    background: rgb(242,105,95);    
+    height: 60px;
+    justify-content: space-around;
+    font-size: 2.5rem;
+    color: rgb(251, 249, 250);
+}
+
+.titlelogo {
+    width: 3%;
+    margin-left: 15%;
+}
+
+.leftColumn{
+    width: 33%;
+    height: 500px;
+    background: rgb(242,105,95);
+    float: left;
+}
+
+.insign {
+    width: 34%;
+    height: 500px;
+    background: rgb(199, 163, 181);
+    float: left;
+}
+
+.rigthColumn {
+    width: 33%;
+    height: 500px;
+    background: rgb(242,105,95);
+    float: left;
+}
+
+.lowerRow {
+    width: 1400px;
+    height: 60px;
+    background: rgb(194, 18, 106);
+    font-size: 1.5rem;
+    color: rgb(251, 249, 250);
+}
