@@ -2,8 +2,8 @@
 import {forRouter, onNavigate } from "./router.js";
 
 //Renderiza por default
-// let currentPathname = window.location.pathname;
-// onNavigate(currentPathname);
+let currentPathname = window.location.pathname;
+onNavigate(currentPathname);
 
 //Enlaces para acceder a las secciones
 const homeLink = document.getElementById('home');
@@ -15,38 +15,40 @@ const logOutLink = document.getElementById('logout');
 
 //Funciones que renderizan cada sección
 forRouter(homeLink, '/home');
-<<<<<<< HEAD
-=======
 forRouter(singUpLink, '/singup');
->>>>>>> 18fb0170adbdaf3a6e04044802f663f7fda84a5d
 forRouter(loginLink, '/login');
 forRouter(postLink, '/post');
 forRouter(logOutLink, '/logout');
 
 //Crear Usuario
-const singUpForm = document.querySelector('#singUp-form');
 
-singUpForm.addEventListener('submit',(e) => {
-    e.preventDefault();
+window.addEventListener('domContentLoad', () => {
+   const singUpForm = document.querySelector('#singUp-form');
 
-    const singUpEmail = document.querySelector('#signUp-email').value;
-    const singUpPassword = document.querySelector('#signUp-password').value;
-    console.log(singUpEmail, singUpPassword);
-
-    auth
-         .createUserWithEmailAndPassword(singUpEmail,singUpPassword)
-         .then(userCredential => {
-
-            //Limpiar el formulario
-            singUpForm.reset();
-            //Cerrar el formulario
-            singUpForm.style.display="none";
-            console.log('Creo cuenta'); 
-         })
+   singUpForm.addEventListener('submit',(e) => {
+       e.preventDefault();
+   
+       const singUpEmail = document.querySelector('#signUp-email').value;
+       const singUpPassword = document.querySelector('#signUp-password').value;
+       console.log(singUpEmail, singUpPassword);
+   
+       auth
+            .createUserWithEmailAndPassword(singUpEmail,singUpPassword)
+            .then(userCredential => {
+   
+               //Limpiar el formulario
+               singUpForm.reset();
+               //Cerrar el formulario
+               singUpForm.style.display="none";
+               console.log('Creo cuenta'); 
+            })
+   });
+   
 });
 
-//Iniciar Sesión
 
+//Iniciar Sesión
+window.addEventListener('domContentLoad', () => {
 const singInForm = document.querySelector('#logIn-form');
 
 singInForm.addEventListener('submit', (e) => {
@@ -66,8 +68,12 @@ singInForm.addEventListener('submit', (e) => {
             singUpForm.style.display="none";
             console.log('Inicio sesión'); 
          })
+  });
 });
+
+
 //Log Out
+window.addEventListener('domContentLoad', () => {
 const toLogOut = document.querySelector('#logout');
 
 toLogOut.addEventListener('click', e =>{
@@ -75,9 +81,11 @@ toLogOut.addEventListener('click', e =>{
    auth.signOut().then(() => {
       console.log('Cerraste Sesión')
    })
-
+  });
 });
+
 //Acceso con Google
+window.addEventListener('domContentLoad', () => {
 const googleButton = document.querySelector('#googleAccess');
 googleButton.addEventListener('click', e => {
    // e.preventDefault();
@@ -92,8 +100,10 @@ googleButton.addEventListener('click', e => {
             console.log(err)
          })
 } )
+});
 
-//Acceso con Facebook 
+//Acceso con Facebook
+window.addEventListener('domContentLoad', () => { 
 const facebookButton = document.querySelector('#facebookAccess');
 facebookButton.addEventListener('click', e => {
    // e.preventDefault();
@@ -108,7 +118,7 @@ facebookButton.addEventListener('click', e => {
             console.log(err)
          })
 } )
-
+});
 
 //Post
 const postList = document.querySelector('#myPost');
@@ -134,7 +144,7 @@ const setUpPost = data => {
 
 //Eventos
 //Revisa el estatus de Auth
-
+window.addEventListener('domContentLoad', () => { 
 auth.onAuthStateChanged(user => {
    if(user) {
       // console.log('Hay sesión iniciada')
@@ -149,4 +159,4 @@ auth.onAuthStateChanged(user => {
       setUpPost([])
    }
 })
-
+});

@@ -1,1 +1,0 @@
-export const login =  `<h1>I am Log In</h1>`;

@@ -1,24 +1,16 @@
-import { home } from './home.js';
-<<<<<<< HEAD
-import { login } from './login.js';
-=======
-import { singUp } from './singUp.js';
-import { logIn } from './login.js';
->>>>>>> 18fb0170adbdaf3a6e04044802f663f7fda84a5d
-import { post } from './post.js';
-import { logOut } from './logOut.js';
+import { home } from './components/home.js';
+import { singUp } from './components/singUp.js';
+import { login } from './components/login.js';
+import { post } from './components/post.js';
+import { logOut } from './components/logOut.js';
 
 //Objeto que contiene los pathnames de las secciones
 const rootDiv = document.getElementById('root');
 
 export const routes = {
     '/home': home,
-<<<<<<< HEAD
-    '/login': login,
-=======
     '/singup': singUp,
-    '/login': logIn,
->>>>>>> 18fb0170adbdaf3a6e04044802f663f7fda84a5d
+    '/login': login,
     '/post': post,
     '/logout': logOut,
 };

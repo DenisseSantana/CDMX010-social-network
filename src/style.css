@@ -1,11 +1,12 @@
 *{
     margin: 0;
     padding: 0;
+    font-family:'Montserrat', sans-serif;
 }
 
 .colores {
     display: flex;
-    background: rgb(242,105,95);
+    background: rgb(236, 201, 198);
     background: rgb(249,180,175);
     background: rgb(245,143,136);
 }
@@ -14,18 +15,37 @@
     width: 100%;
  }
 
-.topRow {
+header {
     display: flex;
     background: rgb(242,105,95);    
-    height: 60px;
-    justify-content: space-around;
-    font-size: 2.5rem;
+    height: 70px;
+    justify-content: space-between;
     color: rgb(251, 249, 250);
 }
 
+.enable-menu{
+    display: block;
+}
+
+.disable-menu{
+    display: none;
+}
+header h1 {
+    padding: 5px;
+    margin: 10px;
+}
+
+.btn-menu {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  margin: 10px;
+}
+
 .titlelogo {
-    width: 3%;
-    margin-left: 15%;
+    padding: 5px;
+    margin: 10px;   
+    width: 40px;
 }
 
 .leftColumn{
