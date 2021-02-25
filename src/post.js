@@ -1,1 +1,3 @@
-export const post =`<h3>Estas son las publicaciones</h3>`;
+export const post =`
+<div class="allPost"><ul class="lisGroup" id="myPost"></ul></div>
+`;
