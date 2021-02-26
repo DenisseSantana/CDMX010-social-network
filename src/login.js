@@ -1,4 +1,6 @@
-export const logIn = `   
+import {logIn, providerG, providerF } from './lib/firebase.js';
+
+export const toLogInView = `   
 <div class="allContainer">
    <div class="section">
      <form id="logIn-form" action="">
@@ -15,3 +17,25 @@ export const logIn = `
   </div>
 </div>`;
 
+const singUpForm = document.querySelector('#logIn-form');
+
+singUpForm.addEventListener('submit',(e) => {
+    e.preventDefault();
+    let email = document.getElementById('logIn-email').value;
+    let password = document.getElementById('logIn-password').value;
+    logIn(email,password)
+});
+
+const googleButton = document.querySelector('#googleAccess');
+
+googleButton.addEventListener('click', e => {
+  e.preventDefault();
+  providerG()
+});
+
+
+const facebookButton = document.querySelector('#facebookAccess');
+facebookButton.addEventListener('click', e => {
+   e.preventDefault();
+   providerF()
+});

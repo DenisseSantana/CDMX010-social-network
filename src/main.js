@@ -2,16 +2,17 @@
 import {forRouter, onNavigate } from './router.js';
 
 //Renderiza por default
-let currentPathname = window.location.pathname;
-onNavigate(currentPathname);
+// let currentPathname = window.location.pathname;
+// onNavigate(currentPathname);
 
 //Enlaces para acceder a las secciones
-const homeLink = document.getElementById('home');
-const singUpLink = document.getElementById('singUp');
-const loginLink = document.getElementById('login');
-const postLink = document.getElementById('post');
-const logOutLink = document.getElementById('logout');
+const homeLink = document.getElementById('homeMenu');
+const singUpLink = document.getElementById('singUpMenu');
+const loginLink = document.getElementById('loginMenu');
+const postLink = document.getElementById('postMenu');
+const logOutLink = document.getElementById('logoutMenu');
 
+console.log(homeLink);
 
 //Funciones que renderizan cada sección
 forRouter(homeLink, '/home');

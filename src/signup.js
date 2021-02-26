@@ -23,7 +23,3 @@ singUpForm.addEventListener('submit',(e) => {
     let password = document.getElementById('signUp-password').value;
     signUp(email,password)
 });
-
-  //  const singUpEmail = document.querySelector('#signUp-email').value;
-   //  const singUpPassword = document.querySelector('#signUp-password').value;
-   //  console.log(singUpEmail, singUpPassword);

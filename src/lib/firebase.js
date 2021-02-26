@@ -9,7 +9,7 @@
     appId: "1:1028505964973:web:643e593fefcb51781f9124",
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
   //Enviamos datos para validarlos 
    const auth = firebase.auth();   
    const fs = firebase.firestore();
@@ -19,7 +19,7 @@
    //  const singUpEmail = document.querySelector('#signUp-email').value;
    //  const singUpPassword = document.querySelector('#signUp-password').value;
    //  console.log(singUpEmail, singUpPassword);
-export const signUp = () => {
+export const signUp = (email,password) => {
    auth
    .createUserWithEmailAndPassword(email,password)
    .then(userCredential => {
@@ -32,18 +32,9 @@ export const signUp = () => {
  };
 
 //Iniciar Sesión
-
-const singInForm = document.querySelector('#logIn-form');
-
-singInForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const logInEmail = document.querySelector('#logIn-email').value;
-    const logInPassword = document.querySelector('#logIn-password').value;
-    console.log(logInEmail, logInPassword);
-
+export const logIn = (email,password) => {
     auth
-         .signInWithEmailAndPassword(logInEmail,logInPassword)
+         .signInWithEmailAndPassword(email,password)
          .then(userCredential => {
 
             //Limpiar el formulario
@@ -52,24 +43,19 @@ singInForm.addEventListener('submit', (e) => {
             singUpForm.style.display="none";
             console.log('Inicio sesión'); 
          })
-});
+};
 //Log Out
-const toLogOut = document.querySelector('#logout');
-
-toLogOut.addEventListener('click', e =>{
-   e.preventDefault();
+export const logOut = () => {
    auth.signOut().then(() => {
       console.log('Cerraste Sesión')
    })
+};
 
-});
 //Acceso con Google
-const googleButton = document.querySelector('#googleAccess');
-googleButton.addEventListener('click', e => {
-   // e.preventDefault();
-   //  console.log('Jala botón Google')
-   const provider = new firebase.auth.GoogleAuthProvider();
-   auth.signInWithPopup(provider)
+
+   export const providerG = () =>{
+   new firebase.auth.GoogleAuthProvider();
+   auth.signInWithPopup(providerG)
         .then(result => {
          // console.log(result);
            console.log("se ha iniciado sesión con google")
@@ -77,15 +63,14 @@ googleButton.addEventListener('click', e => {
          .catch(err => {
             console.log(err)
          })
-} )
+   };
 
 //Acceso con Facebook 
-const facebookButton = document.querySelector('#facebookAccess');
-facebookButton.addEventListener('click', e => {
-   // e.preventDefault();
+
    //  console.log('Jala botón Facebook')
-   const provider = new firebase.auth.FacebookAuthProvider();
-   auth.signInWithPopup(provider)
+   export const providerF = () => {
+   new firebase.auth.FacebookAuthProvider();
+   auth.signInWithPopup(providerF)
         .then(result => {
            console.log(result);
            console.log("se ha iniciado sesión con facebook ")
@@ -93,12 +78,13 @@ facebookButton.addEventListener('click', e => {
          .catch(err => {
             console.log(err)
          })
-} )
-
-
+   };
+   
 //Post
-const postList = document.querySelector('#myPost');
-const setUpPost = data => {
+// const postList = document.querySelector('#myPost');
+export const setUpPost = (postList) => {
+
+data => {
    if(data.length) {
       let html = '';
       data.forEach(doc =>{
@@ -116,8 +102,7 @@ const setUpPost = data => {
    } else {
       postList.innerHTML=' <p>Inicia sesión para ver las publicaciones</p>'
    }
-}
-
+}};
 //Eventos
 //Revisa el estatus de Auth
 
