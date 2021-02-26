@@ -19,7 +19,11 @@ const singUpForm = document.querySelector('#singUp-form');
 
 singUpForm.addEventListener('submit',(e) => {
     e.preventDefault();
-    const email = document.getElementById('signUp-email').value;
-    const password = document.getElementById('signUp-password').value;
+    let email = document.getElementById('signUp-email').value;
+    let password = document.getElementById('signUp-password').value;
+    signUp(email,password)
+});
 
-}
+  //  const singUpEmail = document.querySelector('#signUp-email').value;
+   //  const singUpPassword = document.querySelector('#signUp-password').value;
+   //  console.log(singUpEmail, singUpPassword);

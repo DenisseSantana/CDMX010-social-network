@@ -16,12 +16,12 @@
 
   //Crear Usuario
 
-    const singUpEmail = document.querySelector('#signUp-email').value;
-    const singUpPassword = document.querySelector('#signUp-password').value;
-    console.log(singUpEmail, singUpPassword);
+   //  const singUpEmail = document.querySelector('#signUp-email').value;
+   //  const singUpPassword = document.querySelector('#signUp-password').value;
+   //  console.log(singUpEmail, singUpPassword);
 export const signUp = () => {
    auth
-   .createUserWithEmailAndPassword(singUpEmail,singUpPassword)
+   .createUserWithEmailAndPassword(email,password)
    .then(userCredential => {
       //Limpiar el formulario
       singUpForm.reset();

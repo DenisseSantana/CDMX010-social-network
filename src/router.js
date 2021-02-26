@@ -1,5 +1,5 @@
 import { home } from './home.js';
-import { singUp } from './singUp.js';
+import { toSignView} from './signup.js';
 import { logIn } from './login.js';
 import { post } from './post.js';
 import { logOut } from './logOut.js';
@@ -9,7 +9,7 @@ const rootDiv = document.getElementById('root');
 
 export const routes = {
     '/home': home,
-    '/singup': singUp,
+    '/singup': toSignView,
     '/login': logIn,
     '/post': post,
     '/logout': logOut,
