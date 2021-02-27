@@ -1,1 +1,25 @@
-export const singUp = () => `<h1>I am Sing Up</h1>`;
+import singUp from './lib/firebase.js';
+
+export const toSignView =`
+<div class="allContainer">
+ <div class="section">
+  <form id="singUp-form" action="">
+   <div class="formGroup">
+    <input type="text" id="signUp-email" class="form-control" placeholder="Usuario/Email" required>
+   </div>
+   <div class="formGroup">
+    <input type="password" id="signUp-password" class="form-control" placeholder="Contraseña" required>
+   </div>
+   <button type="submit" class="btnType">Crear cuenta</button>
+  </form>
+ </div>
+</div>`;
+
+const singUpForm = document.querySelector('#singUp-form');
+
+singUpForm.addEventListener('submit',(e) => {
+    e.preventDefault();
+    const email = document.getElementById('signUp-email').value;
+    const password = document.getElementById('signUp-password').value;
+
+})
