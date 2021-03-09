@@ -1,26 +1,25 @@
-import { home } from './home.js';
-import { singUp } from './singUp.js';
-import { logIn } from './login.js';
-import { post } from './post.js';
-import { logOut } from './logOut.js';
+import { toViewHome } from './components/home.js';
+import { toViewLogIn } from './components/login.js';
+import { toViewSingUp } from './components/singup.js';
+import { toViewPost } from './components/post.js';
+// import { toViewLogOut } from './components/logout.js';
 
 //Objeto que contiene los pathnames de las secciones
 const rootDiv = document.getElementById('root');
 
 export const routes = {
-    '/home': home,
-    '/singup': singUp,
-    '/login': logIn,
-    '/post': post,
-    '/logout': logOut,
+    '/': toViewHome,
+    '/login': toViewLogIn,
+    '/signup': toViewSingUp,
+    '/post': toViewPost,
 };
 
 //Evento click que define el pathname donde se renderizará //
-export function forRouter(linkId,PathName) {
-    linkId.addEventListener('click', () => {
-        onNavigate(PathName); return false;
-    })
-    }
+// export function forRouter(linkId,PathName) {
+//     linkId.addEventListener('click', () => {
+//         onNavigate(PathName); return false;
+//     })
+//     }
 //Función que renderiza el pathname 
 export const onNavigate = (pathname) => {
     window.history.pushState(
@@ -28,19 +27,11 @@ export const onNavigate = (pathname) => {
         pathname,
         window.location.origin + pathname
     )
-    rootDiv.innerHTML=routes[pathname];
-    if (pathname=='/home') {
-        console.log('This is Home');
-    } else if (pathname=='/singup') {
-        console.log('This is Sing Up');
-    } else if (pathname=='/login') {
-        console.log('This is Log In');
-    } else if(pathname=='/post') {
-        console.log('This is post');       
-    } else if (pathname=='/logout') {
-        console.log('This is Log Out');
-    }
-    // const buildController = routes[pathname]
-    // buildController()
+    const component = routes[pathname] // esta es una funcion
+    component(rootDiv);
 };
 
+window.onpopstate = () => {
+    const component = routes[window.location.pathname];
+    component(rootDiv);
+};
