@@ -1,7 +1,8 @@
 import {createAccount} from '../lib/firebase.js';
 import { onNavigate } from '../router.js';
 
-export const toViewSingUp = `
+export const toViewSingUp = (container) =>{
+const html = `
 <div class="allContainer">
  <div class="section">
   <form id="singUp-form" action="">
@@ -19,6 +20,9 @@ export const toViewSingUp = `
  </div>
 </div>
 `;
+
+container.innerHTML = html;
+//Crear cuenta
 const singUpForm = document.querySelector('#singUp-form');
 singUpForm.addEventListener('submit',(e) => {
     e.preventDefault();
@@ -29,4 +33,5 @@ singUpForm.addEventListener('submit',(e) => {
     singUpForm.reset();
     onNavigate('/singup');
 });
+};
     // console.log(singUpEmail, singUpPassword);

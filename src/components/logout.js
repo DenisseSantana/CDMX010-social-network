@@ -1,1 +1,0 @@
-export const toViewLogOut = `<h3>Cerró sesión</h3>`;

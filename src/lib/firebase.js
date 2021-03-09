@@ -35,8 +35,12 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        const errorEmail = error.email;
+        const errorCredential = error.credential;
         console.log(errorCode);
         console.log(errorMessage);
+        console.log(errorEmail );
+        console.log(errorCredential);
       })
 
       firebase.auth().signOut(); 
@@ -51,7 +55,7 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
       }
       else{
       const errorCode = error.code;
-      alert('Usuario ya existente, intente con otro', errorCode);
+      alert('El usuario ya existe, intente con otro', errorCode);
       }
     })
 };

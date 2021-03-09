@@ -1,4 +1,5 @@
-export const toViewPost =`
+export const toViewPost = (container) =>{
+  const html =`
 <body>
   <header>
     <div class="menuIcon">
@@ -23,3 +24,6 @@ export const toViewPost =`
   <h3>Aqi van los articulos</h3>
   </aside>
 `;
+
+container.innerHTML = html;
+}
