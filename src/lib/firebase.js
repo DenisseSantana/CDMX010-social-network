@@ -64,7 +64,7 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
 export const inLogIn = (logInEmail,logInPassword) => {
    firebase.auth().signInWithEmailAndPassword(logInEmail,logInPassword)
    .then((userCredential) => {
-     onNavigate('/login');   
+     onNavigate('/post');   
    })
    .catch((error) => {
      alert('Ingresa tus datos para poder iniciar sesión', error);
@@ -92,7 +92,7 @@ export const toLogGoogle = () => {
    const provider = new firebase.auth.GoogleAuthProvider(); //en esta linea se pone el provedor de autenticacion//
    firebase.auth().signInWithPopup(provider)
    .then((result) => {
-     onNavigate('/singUp');
+     onNavigate('/post');
      /** @type {firebase.auth.OAuthCredential} */
      var credential = result.credential;
      var token = credential.accessToken;
@@ -116,7 +116,7 @@ export const toLogFacebook = () => {
  
    firebase.auth().signInWithPopup(provider)
    .then((result) => {
-     onNavigate('/singUp');
+     onNavigate('/post');
      /** @type {firebase.auth.OAuthCredential} */
      var credential = result.credential;
      var user = result.user;
