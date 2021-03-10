@@ -184,23 +184,101 @@ button:focus{
     height: 400px;
 }
 
-.postMenu{
+.postBody{
     display: flex;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.postHeader{
+    top:0;
+    display: flex;
+    width: 100vw;
     background: rgb(242,105,95);    
-    height: 70px;
+    height: 10vh;
     justify-content: space-between;
+    align-items: center;
     color: rgb(251, 249, 250);
 }
 
-.postMenu h1 {
+.postHeader h1 {
     padding: 5px;
     margin: 10px;
 }
 
 .postContainer{
     display: flex;
-    width: 100%;
+    width: 100vw;
+    height: 20vh;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.boxToPost{
+    display: flex;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+}
+
+.articleDiv{
+    width: 100vw;
+    height: 70vh;
+}
+
+/* .toStyle{
+
+} */
+
+a{
+text-decoration: none;
+font-size: 20px;
+color: white;
+padding-left: 5px;
+}
+
+a:hover{
+color:#fbb84d;;
+}
+
+.boxToLogOut{
+border-left: 3px solid white;
+
+}
+
+textarea {
+ width: 30vw;
+ border: 1px solid #fbb84d; 
+ border-radius: 5px;
+ outline: none;
+ padding: 5px;
+}
+
+textarea:focus {
+    border: 1px solid #a863a7; 
+    border-radius: 5px;
+}
+
+#btnPost{
+    align-items: center;
+    background-color: rgb(242,105,95) ;
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#btnPost:hover{
+    align-items: center;
+    background-color: #a863a7;
+    color: white;
 }

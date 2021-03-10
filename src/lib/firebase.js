@@ -28,10 +28,10 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
         displayName: singUpName
       })
 
-      const configuracion = { //Redirije al usuario después de verificar su email
+      const configuracion = { 
         url: 'http://localhost:5000'
       }
-      result.user.sendEmailVerification(configuracion) //Enviar correo al usuario para verficar su email
+      result.user.sendEmailVerification(configuracion) 
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -71,13 +71,17 @@ export const inLogIn = (logInEmail,logInPassword) => {
    })
    };
 //Log Out
-// const toLogOut = document.querySelector('#logout');
-// toLogOut.addEventListener('click', e =>{
-//    e.preventDefault();
-//    auth.signOut().then(() => {
-//       console.log('Cerraste Sesión')
-//    })
-// });
+export const toViewLogOut = () => {
+  firebase.auth().signOut()
+  .then((user) =>{
+    alert('Cerraste sesión 😉')
+    onNavigate('/')
+  })
+  .catch((error) => {
+    console.log('Error al cerrar sesión');
+  })
+};
+
 export const inLogOut = () =>{
    firebase.auth().signOut()
    .then((user) =>{
@@ -132,41 +136,51 @@ export const toLogFacebook = () => {
 
 
 //Post
-const postList = document.querySelector('#myPost');
-const setUpPost = data => {
-   if(data.length) {
-      let html = '';
-      data.forEach(doc =>{
-         const post = doc.data()
-         console.log(post)
-         const li = `
-           <li class="item" >
-             <h5>${post.title}</h5>
-             <p>${post.description}</p>
-           </li>
-           `;
-           html += li;
-      });
-      postList.innerHTML = html;
-   } else {
-      postList.innerHTML=' <p>Inicia sesión para ver las publicaciones</p>'
-   }
-}
+// const postList = document.querySelector('#myPost');
+// const setUpPost = data => {
+//    if(data.length) {
+//       let html = '';
+//       data.forEach(doc =>{
+//          const post = doc.data()
+//          console.log(post)
+//          const li = `
+//            <li class="item" >
+//              <h5>${post.title}</h5>
+//              <p>${post.description}</p>
+//            </li>
+//            `;
+//            html += li;
+//       });
+//       postList.innerHTML = html;
+//    } else {
+//       postList.innerHTML=' <p>Inicia sesión para ver las publicaciones</p>'
+//    }
+// }
 
 //Eventos
 //Revisa el estatus de Auth
 
-firebase.auth().onAuthStateChanged(user => {
-   if(user) {
-      // console.log('Hay sesión iniciada')
-      fs.collection('post')
-         .get()
-         .then((snapshot) => {
-            // console.log(snapshot.docs)
-            setUpPost(snapshot.docs)
-         })
-   } else {
-      // console.log('No hay sesión iniciada')
-      setUpPost([])
-   }
-})
+// firebase.auth().onAuthStateChanged(user => {
+//    if(user) {
+//       // console.log('Hay sesión iniciada')
+//       fs.collection('post')
+//          .get()
+//          .then((snapshot) => {
+//             // console.log(snapshot.docs)
+//             setUpPost(snapshot.docs)
+//          })
+//    } else {
+//       // console.log('No hay sesión iniciada')
+//       setUpPost([])
+//    }
+// })
+
+//Para crear publicaciones
+
+// export const toMakePost = (tittle,comment) => {
+//   fs.collection('post').doc().set({
+//     tittle,
+//     comment
+//   })
+// }
+
