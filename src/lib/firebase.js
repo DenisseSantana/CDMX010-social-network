@@ -23,11 +23,10 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
     .then((result) => {
       firebase.auth().signOut(); 
       inLogOut(onNavigate('/'));
-      alert('Ve a tu correo electronico y verifica tu cuenta para poder ingresar');
+      alert('Verifica tu cuenta para poder ingresar');
       result.user.updateProfile({
         displayName: singUpName
       })
-
       const configuracion = { 
         url: 'http://localhost:5000'
       }

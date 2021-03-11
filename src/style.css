@@ -282,3 +282,58 @@ textarea:focus {
     background-color: #a863a7;
     color: white;
 }
+
+.postedContainer{
+    display: flex;
+    border-radius: 5px;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.posted{
+    display: flex;
+    border-radius: 5px;
+    background-color: #fcd7cc;
+    padding: 20px;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 30vw;
+    margin: 10px;
+}
+
+.postedTitle{
+    color: rgb(242,105,95) ;
+    font-size: 20px;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+.postedComment{
+    color: rgb(242,105,95) ;
+    font-size: 15px;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+
+.btnPosted{
+    align-items: center;
+    background-color: rgb(242,105,95) ;
+    color: white;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btnPosted:hover{
+    align-items: center;
+    background-color: #a863a7;
+    color: white;
+}
+
+.postedBtns{
+    align-items: flex-end; 
+    margin: 2px;
+}
