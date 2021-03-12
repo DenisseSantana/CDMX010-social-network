@@ -11,8 +11,8 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   //Enviamos datos para validarlos 
-  const auth = firebase.auth();   
-  const fs = firebase.firestore();
+  // const auth = firebase.auth();   
+  // const fs = firebase.firestore();
 
 
 //Crear Usuario
@@ -81,18 +81,18 @@ export const toViewLogOut = () => {
   })
 };
 
-export const inLogOut = () =>{
-   firebase.auth().signOut()
-   .then((user) =>{
-     alert('Cerraste sesión correctamente');
-   })
-   .catch((error) => {
-     console.log('Error al cerrar sesión');
-   })
- }
+// export const inLogOut = () =>{
+//    firebase.auth().signOut()
+//    .then((user) =>{
+//      alert('Cerraste sesión correctamente');
+//    })
+//    .catch((error) => {
+//      console.log('Error al cerrar sesión');
+//    })
+//  }
 //Acceso con Google
 export const toLogGoogle = () => {
-   const provider = new firebase.auth.GoogleAuthProvider(); //en esta linea se pone el provedor de autenticacion//
+   const provider = new firebase.auth.GoogleAuthProvider(); 
    firebase.auth().signInWithPopup(provider)
    .then((result) => {
      onNavigate('/post');

@@ -36,8 +36,8 @@ const db = firebase.firestore();
 const inSendForm = document.querySelector('#postForm');
 const postedComments = document.querySelector('#myPost');
 
-// let editStatus = false;
-// let id = '';
+let editStatus = false;
+let id = '';
 
 const savepost = (tittle, comment) =>
      db.collection("post").doc().set({
@@ -49,7 +49,7 @@ const getPost = () => db.collection('post').get();
 const getIdPost = (id) => db.collection('post').doc(id).get();
 const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
 const deletePost = id => db.collection('post').doc(id).delete();
-const editPost = (id,updatedPost) => db.collection('post').doc(id).update(editPost)
+const editPost = (id,updatedPost) => db.collection('post').doc(id).update(updatedPost);
 
 
 window.addEventListener('DOMContentLoaded', async (e) => {
@@ -70,9 +70,9 @@ window.addEventListener('DOMContentLoaded', async (e) => {
          ${doc.data().comment}
         </div>
         <div class='postedBtns'>
-        <button class ="btnPosted btnEdit" >Editar</button>
+        <button class ="btnPosted btnEdit" data-id="${post.id}">Editar</button>
         <button class ="btnPosted btnDeleted" data-id="${post.id}">Borrar</button>
-        <button class ="btnPosted" data-id="${post.id}>Like</button>
+        <button class ="btnPosted">Like</button>
         </div>
        </div>
       `
@@ -88,14 +88,14 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btn.addEventListener('click', async (e) => {
            const getDataPost = await getIdPost(e.target.dataset.id);
           //  console.log(doc.data())
-          console.log(getDataPost.data())
-          // const postToEdit = getDataPost.data();
-          // editStatus = true;
-          // id = getDataPost.id;
+          // console.log(getDataPost.data())
+          const postToEdit = getDataPost.data();
+          editStatus = true;
+          id = getDataPost.id;
 
-          // inSendForm['postTitle'].value = postToEdit.tittle;
-          // inSendForm['postDescription'].value = postToEdit.comment;
-          // inSendForm['btnPost'].innerText = 'Guardar cambios'
+          inSendForm['postTitle'].value = postToEdit.tittle;
+          inSendForm['postDescription'].value = postToEdit.comment;
+          inSendForm['btnPost'].innerText = 'Guardar cambios'
 
         })
       })
@@ -118,7 +118,7 @@ inSendForm.addEventListener('submit', async (e) => {
     await savepost(tittle.value, comment.value);
   } else {
     await editPost(id, {
-      title: tittle.value,
+      tittle: tittle.value,
       comment: comment.value
     });
     editStatus = false;
