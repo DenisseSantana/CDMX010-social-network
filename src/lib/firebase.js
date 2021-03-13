@@ -22,15 +22,15 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
    firebase.auth().createUserWithEmailAndPassword(singUpEmail,singUpPassword)
     .then((result) => {
       firebase.auth().signOut(); 
-      inLogOut(onNavigate('/'));
+      toViewLogOut(onNavigate('/'));
       alert('Verifica tu cuenta para poder ingresar');
       result.user.updateProfile({
         displayName: singUpName
       })
-      const configuracion = { 
+      const configuration = { 
         url: 'http://localhost:5000'
       }
-      result.user.sendEmailVerification(configuracion) 
+      result.user.sendEmailVerification(configuration) 
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -47,7 +47,7 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
     })
     .catch((error) => {
 
-      if(name === '' || email === '' || password ==='')
+      if(singUpName === '' || singUpEmail === '' || singUpPassword ==='')
       {
         const errorMessage = error.message;
         alert('Llena todos los campos para completar tu registro', errorMessage);

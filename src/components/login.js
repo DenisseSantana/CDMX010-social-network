@@ -5,10 +5,15 @@ import { onNavigate } from '../router.js';
 export const toViewLogIn = (container) => {
   const html = `
   <div class="allContainer">
+   <div class="logoICareTwo">
+    <div><img src="assets/I care circle.png" class="mainLogoTwo"></div>
+    <div><h1>I care</h1></div>
+   </div>
    <div class="section">
     <form id="logIn-form" action="">
-    <button type="button" class="btnType" id="googleAccess">Inicia sesión con google</button>
-    <button type="button" class="btnType" id="facebookAccess">Inicia sesión con Facebook</button>
+    <button type="button" class="btnType" id="googleAccess"><i class="fab fa-google"></i> Inicia con google</button>
+    <button type="button" class="btnType" id="facebookAccess"><i class="fab fa-facebook-f"></i> Inicia con Facebook</button>
+    <br>
      <div class="formGroup">
       <input type="text" id="logIn-email" class="form-control" placeholder="Ingresa tu email" required>
      </div>
@@ -17,6 +22,7 @@ export const toViewLogIn = (container) => {
      </div>
      <button type="submit" class="btnTypeB">Iniciar Sesión</button>  
     </form>
+    <div><h3>¿Olvidaste tu contraseña?</h3></div>
    </div>
   </div>
   `;

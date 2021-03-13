@@ -5,6 +5,10 @@ import {onNavigate} from '../router.js';
 export const toViewHome = (container) => {
   const html = `
   <div class="allContainer">
+   <div class="logoICare">
+    <div><img src="assets/I care circle.png" class="mainLogo"></div>
+    <div><h1>I care</h1></div>
+   </div>
    <div class="section">  
      <button type="button" class="btnType" id="toInit">Iniciar sesión</button>
      <button type="button" class="btnType" id="toCreate">Crear cuenta</button>
