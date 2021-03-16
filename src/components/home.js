@@ -50,4 +50,4 @@ export const toViewHome = (container) => {
 //   root.innerHTML = toViewSingUp;
 //   onNavigate('/singup');
 //    })
-// });
+// }); 

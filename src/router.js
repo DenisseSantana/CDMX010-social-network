@@ -1,6 +1,6 @@
 import { toViewHome } from './components/home.js';
 import { toViewLogIn } from './components/login.js';
-import { toViewSingUp } from './components/singup.js';
+import { toViewSignUp } from './components/singup.js';
 import { toViewPost } from './components/post.js';
 // import { toViewLogOut } from './components/logout.js';
 
@@ -10,7 +10,7 @@ const rootDiv = document.getElementById('root');
 export const routes = {
     '/': toViewHome,
     '/login': toViewLogIn,
-    '/signup': toViewSingUp,
+    '/signup': toViewSignUp,
     '/post': toViewPost,
 };
 

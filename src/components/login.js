@@ -45,4 +45,4 @@ export const toViewLogIn = (container) => {
       e.preventDefault();
       toLogGoogle();
   });
-}
+} 

@@ -34,5 +34,4 @@ singUpForm.addEventListener('submit',(e) => {
     onNavigate('/singup');
 });
 };
-    // console.log(singUpEmail, singUpPassword);
-    
+    // console.log(singUpEmail, singUpPassword); 

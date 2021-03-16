@@ -22,4 +22,3 @@ onNavigate(currentPathname);
 // forRouter(loginLink, '/login');
 // forRouter(postLink, '/post');
 // forRouter(logOutLink, '/logout');
-
