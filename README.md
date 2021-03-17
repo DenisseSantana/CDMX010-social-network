@@ -1,6 +1,5 @@
 # Creando una Red Social
-Holi Crayoli
-![Logo] (/src/assets/I care circle.png)
+I CARE
 
 ## Índice
 
@@ -12,6 +11,8 @@ Holi Crayoli
 
 
 ## 1. Objetivo
+
+![Logo] (/src/assets/I care circle.png)
 
 I care es una red de apoyo que aporta tips de bienestar para estudiantes del bootcamp de laboratoria.
 
