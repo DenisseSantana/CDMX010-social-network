@@ -16,6 +16,9 @@ export const toViewPost = (container) =>{
       <textarea class ="toStyle" id ="postTitle" placeholder="Título" autofocus cols="100" ></textarea>
      </div>
      <div>
+      <textarea class ="toStyle" id ="postAuthor" placeholder="Autora" autofocus cols="100" ></textarea>
+     </div>
+     <div>
       <textarea class ="toStyle" id ="postDescription" placeholder="Escribe tu comentario aquí" rows="4" cols="100"></textarea>
      </div>
      <button id ="btnPost">Publicar</button>
@@ -39,10 +42,12 @@ const postedComments = document.querySelector('#myPost');
 let editStatus = false;
 let id = '';
 
-const savepost = (tittle, comment) =>
+const savepost = (tittle,author,comment,likes) =>
      db.collection("post").doc().set({
         tittle,
-        comment
+        author,
+        comment,
+        likes,
 })
 
 const getPost = () => db.collection('post').get();
@@ -60,11 +65,25 @@ window.addEventListener('DOMContentLoaded', async (e) => {
       // console.log(doc.data());
       const post = doc.data();
       post.id = doc.id;
+      const arrayLikes = post.likes;
+      const countLikes = arrayLikes.length;
+      const user = auth.currentUser;
+      const mailUser = user.email;
+      const likeUser = likesArray.indexOf(mailUser);
+      let srcLike = '../assets/like.png';
+      if (likeUser === -1) {
+        srcLike = '../assets/like.png';
+      } else {
+        srcLike = '../assets/likePink.png';
+      }
       // console.log(post.id);
       postedComments.innerHTML+= `
        <div class='posted'>
         <div class='postedTitle'>
          ${doc.data().tittle}
+        </div>
+        <div class='postedAuthor'>
+         ${doc.data().author}
         </div>
         <div class='postedComment'>
          ${doc.data().comment}
@@ -72,7 +91,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         <div class='postedBtns'>
         <button class ="btnPosted btnEdit" data-id="${post.id}">Editar</button>
         <button class ="btnPosted btnDeleted" data-id="${post.id}">Borrar</button>
-        <button class ="btnPosted">Like</button>
+        <button class ="btnPosted btnLike" data-id="${post.id}><img class="forLike" src="${srcLike}">Like ${countLikes}</button>
         </div>
        </div>
       `
@@ -94,11 +113,43 @@ window.addEventListener('DOMContentLoaded', async (e) => {
           id = getDataPost.id;
 
           inSendForm['postTitle'].value = postToEdit.tittle;
+          inSendForm['postAuthor'].value = postToEdit.author;
           inSendForm['postDescription'].value = postToEdit.comment;
           inSendForm['btnPost'].innerText = 'Guardar cambios'
 
         })
       })
+
+      /////LIKES
+        const btnsLike = document.querySelectorAll('.btnLike');
+        btnsLike.forEach((btn) => {
+          btn.addEventListener('click', async (e) => {
+            // define los ids indivisuales
+            const postData = await getIdpost(e.target.dataset.id);
+            const id = postData.id;
+            const user = auth.currentUser;
+            const mailUser = user.email;
+            const dataPost = postData.data();
+            const arrayLikes = dataPost.likes;
+            let likeUser = '';
+            arrayLikes.forEach((mailU) => {
+              if (mailU === mailUser) {
+                likeUser = mailU;
+              }
+            });
+            if (likeUser === '') {
+              arrayLikes.push(mailUser);
+            } else {
+              const positionMail = arrayLikes.indexOf(likeUser);
+              arrayLikes.splice(positionMail, 1);
+            }
+            await editPost(id, {
+              likes: arrayLikes,
+            });
+          });
+        });
+      });
+      /////
       
 
     })
@@ -106,26 +157,26 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   
  
  
-})
+};
 
 inSendForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const tittle = inSendForm['postTitle'];
+  const authora = inSendForm['postAuthor'];
   const comment = inSendForm['postDescription'];
   // console.log(tittle,comment);
   // await savepost(tittle.value, comment.value);
   if(!editStatus){
-    await savepost(tittle.value, comment.value);
+    await savepost(tittle.value,  authora.value, comment.value);
   } else {
     await editPost(id, {
       tittle: tittle.value,
+      author:  authora.value,
       comment: comment.value
     });
     editStatus = false;
     id = '';
     inSendForm['btnPost'].innerText = 'Publicar';
-
-
   }
   // await getPost();
   inSendForm.reset(); 
@@ -152,4 +203,3 @@ willLogOut.addEventListener('click', e => {
 //   e.preventDefault();
 //   toShowPost(); 
 // });
-}
