@@ -22,7 +22,7 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
    firebase.auth().createUserWithEmailAndPassword(singUpEmail,singUpPassword)
     .then((result) => {
       firebase.auth().signOut(); 
-      inLogOut(onNavigate('/'));
+      toViewLogOut(onNavigate('/'));
       alert('Verifica tu cuenta para poder ingresar');
       result.user.updateProfile({
         displayName: singUpName
@@ -47,7 +47,7 @@ export const createAccount = (singUpName,singUpEmail,singUpPassword)=>{
     })
     .catch((error) => {
 
-      if(name === '' || email === '' || password ==='')
+      if(singUpName === '' || singUpEmail === '' || singUpPassword ==='')
       {
         const errorMessage = error.message;
         alert('Llena todos los campos para completar tu registro', errorMessage);
@@ -81,18 +81,18 @@ export const toViewLogOut = () => {
   })
 };
 
-export const inLogOut = () =>{
-   firebase.auth().signOut()
-   .then((user) =>{
-     alert('Cerraste sesión correctamente');
-   })
-   .catch((error) => {
-     console.log('Error al cerrar sesión');
-   })
- }
+//  export const inLogOut = () =>{
+//    firebase.auth().signOut()
+//    .then((user) =>{
+//      alert('Cerraste sesión correctamente');
+//    })
+//    .catch((error) => {
+//      console.log('Error al cerrar sesión');
+//    })
+ // }
 //Acceso con Google
 export const toLogGoogle = () => {
-   const provider = new firebase.auth.GoogleAuthProvider(); //en esta linea se pone el provedor de autenticacion//
+   const provider = new firebase.auth.GoogleAuthProvider(); 
    firebase.auth().signInWithPopup(provider)
    .then((result) => {
      onNavigate('/post');
@@ -100,19 +100,15 @@ export const toLogGoogle = () => {
      var credential = result.credential;
      var token = credential.accessToken;
      var user = result.user;
-
+     console.log("Acceso google");
      localStorage.setItem('idUser', result.user.uid);
-    // const correo = localStorage.getItem('idUser');
-    // console.log(correo);
-     console.log("Acceso correcto");
    })
    .catch((error) => {
-     
      var errorCode = error.code;
      var errorMessage = error.message;
      var email = error.email;
      var credential = error.credential;
-     //console.log("Error");
+     console.log("Error");
    });
  }
 
@@ -128,12 +124,8 @@ export const toLogFacebook = () => {
      var credential = result.credential;
      var user = result.user;
      var accessToken = credential.accessToken;
- 
      localStorage.setItem('idUser', result.user.uid);
-     var correo = localStorage.getItem('idUser');
-     console.log(correo);
      console.log("acceso face");
-
    })
    .catch((error) => {
      var errorCode = error.code;

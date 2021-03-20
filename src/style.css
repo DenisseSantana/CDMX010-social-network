@@ -313,6 +313,13 @@ textarea:focus {
     padding: 5px;
 }
 
+.postedAuthor{
+    color: rgb(242,105,95) ;
+    font-size: 20px;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
 .postedComment{
     color: rgb(242,105,95) ;
     font-size: 15px;
@@ -389,5 +396,9 @@ textarea:focus {
     align-items: center;
     color: rgb(242,105,95);
     font-size: 20px;
+}
 
+.counter {
+    color: rgb(242,105,95);
+    font-size: 20px;   
 }

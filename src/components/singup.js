@@ -1,9 +1,13 @@
 import {createAccount} from '../lib/firebase.js';
 import { onNavigate } from '../router.js';
 
-export const toViewSingUp = (container) =>{
+export const toViewSignUp = (container) =>{
 const html = `
 <div class="allContainer">
+ <div class="logoICareTwo">
+  <div><img src="assets/I care circle.png" class="mainLogoTwo"></div>
+  <div><h1>I care</h1></div>
+ </div>
  <div class="section">
   <form id="singUp-form" action="">
    <div class="formGroup">
@@ -31,7 +35,6 @@ singUpForm.addEventListener('submit',(e) => {
     const singUpPassword = document.querySelector('#signUp-password').value;
     createAccount(singUpName,singUpEmail,singUpPassword);
     singUpForm.reset();
-    onNavigate('/singup');
+    onNavigate('/');
 });
 };
-    // console.log(singUpEmail, singUpPassword); 

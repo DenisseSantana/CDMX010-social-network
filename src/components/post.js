@@ -5,31 +5,31 @@ export const toViewPost = (container) =>{
   const correo = localStorage.getItem('idUser');
   console.log(correo);
   const html =`
-<div class="postBody"> 
-  <div class="postHeader">
-    <div><img src="assets/I care circle.png" class="titlelogo"></div>
-    <div><h1>I care</h1></div>
-    <div class="boxToLogOut"><a href="#" id="logout">Cerrar sesión</a></div>
-  </div>
-  <div class="postContainer">
-   <div class="boxToPost">
-    <form id = "postForm">
-     <div>
-      <textarea class ="toStyle" id ="postTitle" placeholder="Título" autofocus cols="100" ></textarea>
-     </div>
-     <div>
-      <textarea class ="toStyle" id ="postAuthor" placeholder="Autora" autofocus cols="100" ></textarea>
-     </div>
-     <div>
-      <textarea class ="toStyle" id ="postDescription" placeholder="Escribe tu comentario aquí" rows="4" cols="100"></textarea>
-     </div>
-     <button id ="btnPost">Publicar</button>
-    </form>
-   </div>
-  </div> 
-  <div class="articleDiv">
-  <div>
-   <div class="postedContainer" id="myPost"></div>
+  <div class="postBody"> 
+    <div class="postHeader">
+      <div><img src="assets/I care circle.png" class="titlelogo"></div>
+      <div><h1>I care</h1></div>
+      <div class="boxToLogOut"><a href="#" id="logout">Cerrar sesión</a></div>
+    </div>
+    <div class="postContainer">
+      <div class="boxToPost">
+        <form id = "postForm">
+          <div>
+            <textarea class ="toStyle" id ="postTitle" placeholder="Título" autofocus cols="100" ></textarea>
+          </div>
+          <div>
+            <textarea class ="toStyle" id ="postAuthor" placeholder="Autora" autofocus cols="100" ></textarea>
+          </div>
+          <div>
+            <textarea class ="toStyle" id ="postDescription" placeholder="Escribe tu comentario aquí" rows="4" cols="100"></textarea>
+          </div>
+          <button id ="btnPost">Publicar</button>
+        </form>
+      </div>
+    </div> 
+    <div class="articleDiv">
+    <div>
+    <div class="postedContainer" id="myPost"></div>
   </div>
   </div>
 </div>
@@ -67,6 +67,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
       // console.log(doc.data());
       const post = doc.data();
       post.id = doc.id;
+      const arrayLikes = post.likes;
+      const countLikes = arrayLikes.length;
       // console.log(post.id);
       postedComments.innerHTML+= `
        <div class='posted'>
@@ -83,6 +85,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         <button class ="btnPosted btnEdit" data-id="${post.id}">Editar</button>
         <button class ="btnPosted btnDeleted" data-id="${post.id}">Borrar</button>
         <button class ="btnPosted btnLike" data-id="${post.id}">Like</button>
+        <span class="counter" id="counter" data-id="${post.id}">${countLikes}</span>
         </div>
        </div>
       `
@@ -98,32 +101,20 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btn.addEventListener('click', async (e) => {
           const getDataPost = await getIdPost(e.target.dataset.id);
           const postToEdit = getDataPost.data();
-          inSendForm['postTitle'].value = postToEdit.tittle;
-          inSendForm['postAuthor'].value = postToEdit.author;
-          inSendForm['postDescription'].value = postToEdit.comment;
-          const arrLikes = postToEdit.likes;
- 
-          editStatus = true;
+          //inSendForm['postTitle'].value = postToEdit.tittle;
+           //editStatus = true;
           id = getDataPost.id;
 
           // pasa el uid del usuario al arreglo de la publicación
-          let existid = "";
-          arrLikes.forEach((storedid) => {
-             if (correo = storedid) {
-                 existid = storedid
-             }
-          });
-
-          if (existid === "") {
-            console.log("no existe")
-            arrLikes[0] = correo;
-            console.log(arrLikes[0]);
-          } else {
-            let existplace = arrLikes.indexOf(existid);
-            arrLikes.splice(existplace, 1);
+          const arrlike = postToEdit.likes;
+          if  (arrlike.includes(correo)) {
+            db.collection('post').doc(id).update({likes: firebase.firestore.FieldValue.arrayRemove(correo),
+            });
           }
-          //inSendForm['postLikes'] = arrLikes;
-          postToEdit.likes = arrLikes.slice();
+          else {
+            db.collection('post').doc(id).update({likes: firebase.firestore.FieldValue.arrayUnion(correo),
+          });
+          }
         })
       })
 
@@ -158,15 +149,14 @@ inSendForm.addEventListener('submit', async (e) => {
   const tittle = inSendForm['postTitle'];
   const authora = inSendForm['postAuthor'];
   const comment = inSendForm['postDescription'];
-  const arrayLike = []
-  //const likesStart = inSendForm['postAuthor'];
+  let arrayLike = []
+
   // console.log(tittle,comment);
   // await savepost(tittle.value, comment.value);
   if(!editStatus){
     await savepost(tittle.value, authora.value, comment.value, arrayLike);
   } else {
     await editPost(id, {
-
       tittle: tittle.value,
       author: authora.value,
       comment: comment.value,
