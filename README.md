@@ -5,13 +5,13 @@
 * [1. Objetivo](#1-objetivo)
 * [2. Alcances](#2-alcances)
 * [3. Interface](#3-Interface)
-* [4. Historias de usuario](#4- Historias de usuario)
+* [4. Historias de usuario](#4-Historias de usuario)
 * [5. Usabilidad](#5-Usabilidad)
 
 
 ## 1. Objetivo
 
-![Logo](/src/assets/I care circle.png)
+![](/src/assets/I care circle.png) 
 
 I care es una red de apoyo que aporta tips de bienestar para estudiantes del bootcamp de laboratoria.
 
