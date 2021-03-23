@@ -43,11 +43,11 @@ Ya ingresadas en la aplicación podrán:
 
 Con el fin de que la experiencia sea agradable para las usuarias diseñamos el wireframe:
 
-![wireframe](/src/assets/prototipe.png)
+![wireframe](/src/assets/prototype.jpg)
 
 Posteriormente, con los feedbacks recibidos elaboramos la vista mobile first:
 
-![mobilefirst](/src/assets/mobileprototipe.jpg)
+![mobilefirst](/src/assets/mobileprototype.jpg)
 
 * Implementamos el proyecto de forma responsive, iniciando con la version mobile first.
 * Implementamos el uso de Firebase para la autenticación e ingreso de las usuarias.
