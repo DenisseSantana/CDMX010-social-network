@@ -11,7 +11,7 @@
 
 ## 1. Objetivo
 
-![Logo] (/src/assets/I care circle.png)
+![Logo](/src/assets/I care circle.png)
 
 I care es una red de apoyo que aporta tips de bienestar para estudiantes del bootcamp de laboratoria.
 
@@ -43,7 +43,7 @@ Con el fin de que la experiencia sea agradable para las usuarias diseñamos el w
 ![wireframe](../assets/prototipo 1.png)
 
 Posteriormente, con los feedbacks recibidos elaboramos la vista mobile first:
-![mobileFirst 1] (src = ../assets/prototipo 2.png)
+![mobilefirst](src = ../assets/prototipo 2.png)
 
 * Implementamos el proyecto de forma responsive, iniciando con la version mobile first.
 * Implementamos el uso de Firebase para la autenticación e ingreso de las usuarias.
