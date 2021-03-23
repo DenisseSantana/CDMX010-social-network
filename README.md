@@ -28,16 +28,16 @@ Todas las recomendaciones son bienvenidas!!
 
 Las usuarias podran ingresar de varias maneras:
 
-    * Creando una cuenta con correo electrónico
-    * Creando una cuenta con Google o de Facebook
+  * Creando una cuenta con correo electrónico
+  * Creando una cuenta con Google o de Facebook
 
 Ya ingresadas en la aplicación podrán:
 
-    * Visitar las publicaciones existentes 
-    * Publicar, 
-    * Editar, 
-    * Borrar,
-    * Dar like a alguna que le parezca interesante (la usuaria solo podrá dar un like a cada publicación).
+  * Visitar las publicaciones existentes 
+  * Publicar, 
+  * Editar, 
+  * Borrar,
+  * Dar like a alguna que le parezca interesante (la usuaria solo podrá dar un like a cada publicación).
 
 ## 3. Interface
 
