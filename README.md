@@ -7,7 +7,7 @@
 * [3. Interface](#3-Interface)
 * [4. Historias de usuario](#4-Historias de usuario)
 * [5. Usabilidad](#5-Usabilidad)
-
+***
 
 ## 1. Objetivo
 
@@ -27,23 +27,26 @@ Todas las recomendaciones son bienvenidas!!
 ## 2. Alcances
 
 Las usuarias podran ingresar de varias maneras:
-    * creando una cuenta
-    * con una cuenta de correo, de Google o de Facebook
+
+    * Creando una cuenta con correo electrónico
+    * Creando una cuenta con Google o de Facebook
 
 Ya ingresadas en la aplicación podrán:
-    * visitar las publicaciones existentes 
-    * publicar, 
-    * editar, 
-    * borrar y 
-    * dar like a alguna que le parezca interesante (la usuaria solo podrá dar un like a cada publicación).
+
+    * Visitar las publicaciones existentes 
+    * Publicar, 
+    * Editar, 
+    * Borrar,
+    * Dar like a alguna que le parezca interesante (la usuaria solo podrá dar un like a cada publicación).
 
 ## 3. Interface
 
 Con el fin de que la experiencia sea agradable para las usuarias diseñamos el wireframe:
-![wireframe](../assets/prototipo 1.png)
+
+![wireframe](/src/assets/prototipo 1.png)
 
 Posteriormente, con los feedbacks recibidos elaboramos la vista mobile first:
-![mobilefirst](src = ../assets/prototipo 2.png)
+![mobilefirst](/src/assets/prototipo 2.png)
 
 * Implementamos el proyecto de forma responsive, iniciando con la version mobile first.
 * Implementamos el uso de Firebase para la autenticación e ingreso de las usuarias.
