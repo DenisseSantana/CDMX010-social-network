@@ -68,9 +68,21 @@ Se desarrollaron las siguientes historias de usuario:
 ## 5. Usabilidad.
 
 1. Crear cuenta
+
+![ToSign](/src/assets/tosign.gif)
+
 2. Ingresar
+
+![ToLog](/src/assets/tolog.gif)
+
 3. Publicaciones
+
+![ToPost](/src/assets/topost.gif)
+
 4. Cerrar sesión 
+
+![ToLogOut](/src/assets/tologout.gif)
+
 
 
 
