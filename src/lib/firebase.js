@@ -101,6 +101,7 @@ export const toLogGoogle = () => {
      var token = credential.accessToken;
      var user = result.user;
      console.log("Acceso correcto");
+    //  localStorage.setItem('idUser', result.user.uid);
    })
    .catch((error) => {
      
@@ -124,6 +125,7 @@ export const toLogFacebook = () => {
      var credential = result.credential;
      var user = result.user;
      var accessToken = credential.accessToken;
+    //  localStorage.setItem('idUser', result.user.uid);
    })
    .catch((error) => {
      var errorCode = error.code;

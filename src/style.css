@@ -408,3 +408,17 @@ textarea:focus {
     width: 5px;
     height: 5px;
 }
+
+.counter {
+    color: rgb(242,105,95);
+    font-size: 20px;   
+}
+
+/* .alert {
+    padding: 20px;
+    background-color:rgb(242,105,95);
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+  } */
