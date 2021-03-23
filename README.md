@@ -5,13 +5,13 @@
 * [1. Objetivo](#1-objetivo)
 * [2. Alcances](#2-alcances)
 * [3. Interface](#3-Interface)
-* [4. Historias](#4-Historias de usuario)
+* [4. Historias](#4-Historias)
 * [5. Usabilidad](#5-Usabilidad)
 ***
 
 ## 1. Objetivo
 
-![](/src/assets/I care circle.png) 
+![](/src/assets/logo.png) 
 
 I care es una red de apoyo que aporta tips de bienestar para estudiantes del bootcamp de laboratoria.
 
@@ -53,7 +53,7 @@ Posteriormente, con los feedbacks recibidos elaboramos la vista mobile first:
 * Implementamos la modularización del codigo para separar por responsabilidades.
 * Implementamos el uso de SPA para dar pronta respuesta a las usuarias.
 
-## 4. Historias de usuario
+## 4. Historias
 
 Se desarrollaron las siguientes historias de usuario:
 
