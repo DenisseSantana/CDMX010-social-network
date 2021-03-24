@@ -69,11 +69,11 @@ Se desarrollaron las siguientes historias de usuario:
 
 1. Crear cuenta
 
-![ToSign](/src/assets/signup.gif)
+![ToSign](/src/assets/signUp.gif)
 
 2. Ingresar
 
-![ToLog](/src/assets/login.gif)
+![ToLog](/src/assets/logIn.gif)
 
 3. Publicaciones
 
