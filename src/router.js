@@ -14,12 +14,7 @@ export const routes = {
     '/post': toViewPost,
 };
 
-//Evento click que define el pathname donde se renderizará //
-// export function forRouter(linkId,PathName) {
-//     linkId.addEventListener('click', () => {
-//         onNavigate(PathName); return false;
-//     })
-//     }
+
 //Función que renderiza el pathname 
 export const onNavigate = (pathname) => {
     window.history.pushState(
@@ -27,7 +22,7 @@ export const onNavigate = (pathname) => {
         pathname,
         window.location.origin + pathname
     )
-    const component = routes[pathname] // esta es una funcion
+    const component = routes[pathname] 
     component(rootDiv);
 };
 
