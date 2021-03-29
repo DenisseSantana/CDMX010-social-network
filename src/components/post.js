@@ -2,8 +2,7 @@
 // import {toMakePost} from '../lib/firebase.js';
 import {toViewLogOut} from '../lib/firebase.js';
 export const toViewPost = (container) =>{
-  const correo = localStorage.getItem('idUser');
-  console.log(correo);
+  const uidUSer = localStorage.getItem('idUser');
   const html =`
   <div class="postBody"> 
     <div class="postHeader">
@@ -64,12 +63,10 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   onGetPost((querySnapshot) => {
     postedComments.innerHTML='';
     querySnapshot.forEach(doc =>{
-      // console.log(doc.data());
       const post = doc.data();
       post.id = doc.id;
       const arrayLikes = post.likes;
       const countLikes = arrayLikes.length;
-      // console.log(post.id);
       postedComments.innerHTML+= `
        <div class='posted'>
         <div class='postedTitle'>
@@ -101,44 +98,31 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btn.addEventListener('click', async (e) => {
           const getDataPost = await getIdPost(e.target.dataset.id);
           const postToEdit = getDataPost.data();
-          //inSendForm['postTitle'].value = postToEdit.tittle;
-           //editStatus = true;
           id = getDataPost.id;
-
-          // pasa el uid del usuario al arreglo de la publicación
           const arrlike = postToEdit.likes;
-          if  (arrlike.includes(correo)) {
-            db.collection('post').doc(id).update({likes: firebase.firestore.FieldValue.arrayRemove(correo),
+          if  (arrlike.includes(uidUSer)) {
+            db.collection('post').doc(id).update({likes: firebase.firestore.FieldValue.arrayRemove(uidUSer),
             });
           }
           else {
-            db.collection('post').doc(id).update({likes: firebase.firestore.FieldValue.arrayUnion(correo),
+            db.collection('post').doc(id).update({likes: firebase.firestore.FieldValue.arrayUnion(uidUSer),
           });
           }
         })
       })
-
-
       const btnsEdit= document.querySelectorAll('.btnEdit');
       btnsEdit.forEach(btn => {
         btn.addEventListener('click', async (e) => {
-           const getDataPost = await getIdPost(e.target.dataset.id);
-          //  console.log(doc.data())
-          // console.log(getDataPost.data())
+          const getDataPost = await getIdPost(e.target.dataset.id);
           const postToEdit = getDataPost.data();
           editStatus = true;
           id = getDataPost.id;
-
           inSendForm['postTitle'].value = postToEdit.tittle;
           inSendForm['postAuthor'].value = postToEdit.author;
           inSendForm['postDescription'].value = postToEdit.comment;
-          inSendForm['postLikes'].value = postToEdit.likes;
           inSendForm['btnPost'].innerText = 'Guardar cambios'
-
         })
       })
-      
-
     })
   }) 
  
@@ -160,7 +144,7 @@ inSendForm.addEventListener('submit', async (e) => {
       tittle: tittle.value,
       author: authora.value,
       comment: comment.value,
-      likes: arrayLike.value
+      //likes: arrayLike.value
 
     });
     editStatus = false;
