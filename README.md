@@ -1,5 +1,4 @@
 # Creando una Red Social
-Holi Crayoli
 ![Logo] (/src/assets/I care circle.png)
 
 ## Índice
