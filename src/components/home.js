@@ -33,25 +33,3 @@ export const toViewHome = (container) => {
   });
 };
   
-
-
-// window.addEventListener('DOMContentLoaded', () => {
-//   const toInitB = document.getElementById("toInit") 
-//   toInitB.addEventListener('click', (e) => {
-//    e.preventDefault();
-//   //  console.log("entro a boton inicio");  
-//   root.innerHTML = "";
-//   root.innerHTML = toViewLogIn;
-//   onNavigate('/login');
-//    })
-// });
-// window.addEventListener('DOMContentLoaded', () => {
-//   const toCreateB = document.getElementById("toCreate") 
-//   toCreateB.addEventListener('click', (e) => {
-//    e.preventDefault();
-//   //  console.log("entro a boton inicio");  
-//   root.innerHTML = "";
-//   root.innerHTML = toViewSingUp;
-//   onNavigate('/singup');
-//    })
-// }); 

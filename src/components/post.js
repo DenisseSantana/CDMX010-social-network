@@ -11,16 +11,19 @@ export const toViewPost = (container) =>{
       <div class="boxToLogOut"><a href="#" id="logout">Cerrar sesión</a></div>
     </div>
     <div class="postContainer">
+      <br>
+      <br>
+      <br>
       <div class="boxToPost">
         <form id = "postForm">
           <div>
-            <textarea class ="toStyle" id ="postTitle" placeholder="Título" autofocus cols="100" ></textarea>
+            <textarea id ="postTitle" placeholder="Título" autofocus cols="100" ></textarea>
           </div>
           <div>
-            <textarea class ="toStyle" id ="postAuthor" placeholder="Autora" autofocus cols="100" ></textarea>
+            <textarea id ="postAuthor" placeholder="Autora" autofocus cols="100" ></textarea>
           </div>
           <div>
-            <textarea class ="toStyle" id ="postDescription" placeholder="Escribe tu comentario aquí" rows="4" cols="100"></textarea>
+            <textarea id ="postDescription" placeholder="Escribe tu comentario aquí" rows="4" cols="100"></textarea>
           </div>
           <button id ="btnPost">Publicar</button>
         </form>
@@ -157,23 +160,10 @@ inSendForm.addEventListener('submit', async (e) => {
   //toMakePost(tittle,comment);
 });
 
-// inSendForm.addEventListener('submit', e => {
-//   e.preventDefault();
-//   const tittle = inSendForm['postTitle'].value;
-//   const comment = inSendForm['postDescription'].value;
-//   // console.log(tittle,comment);
-//   toMakePost(tittle,comment);
-// });
-
 const willLogOut = document.querySelector('#logout');
 willLogOut.addEventListener('click', e => {
   e.preventDefault();
   toViewLogOut();
 });
 
-// const postList = document.querySelector('#myPost');
-// postList.addEventListener('', (e) => {
-//   e.preventDefault();
-//   toShowPost(); 
-// });
-} 
+ }
