@@ -451,7 +451,8 @@ textarea:focus {
     
     #btnPost{
        align-items: center;
-       background-color: rgb(242,105,95) ;
+       background-color: rgb(242, 215, 95);
+      /* background-color: rgb(242,105,95); */      
        color: white;
        border: none;
        font-size: 20px;
