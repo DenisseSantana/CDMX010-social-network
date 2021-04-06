@@ -9,7 +9,7 @@ export const toViewHome = (container) => {
    <div>
       <img src="assets/I care circle.png" class="mainLogo">
        <h1>I care</h1>
-       <h2>tips de Bienestar</h2>
+       <h2>Tips de Bienestar</h2>
     </div>
    </div>
    <div class="section">  
