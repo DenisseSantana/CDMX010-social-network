@@ -4,8 +4,8 @@ import { onNavigate } from '../router.js';
 export const toViewSignUp = (container) =>{
 const html = `
 <div class="allContainer">
- <div class="logoICareTwo">
-  <div><img src="assets/I care circle.png" class="mainLogoTwo"></div>
+ <div class="logoICareLogin">
+  <div><img src="assets/I care circle.png" class="mainLogoLogin"></div>
   <div><h1>I care</h1></div>
  </div>
  <div class="section">

@@ -5,9 +5,9 @@ import { onNavigate } from '../router.js';
 export const toViewLogIn = (container) => {
   const html = `
   <div class="allContainer">
-   <div class="logoICareTwo">
-    <div><img src="assets/I care circle.png" class="mainLogoTwo"></div>
-    <div><h1>I care</h1></div>
+   <div class="logoICareLogin">
+    <img src="assets/I care circle.png" class="mainLogoLogin">
+    <h1>I care</h1>
    </div>
    <div class="section">
     <form id="logIn-form" action="">
